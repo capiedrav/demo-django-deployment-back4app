@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  web:
+    build: .    
+    
+    volumes:
+        # move statics files to where nginx can find them
+    - ./staticfiles_prod:/var/www/demo_django_deployment/static
+    
+    ports:
+      - 8080:80
+
+    env_file:
+      - ./.env-vars
+
+    container_name: demo_django_deployment
+      
