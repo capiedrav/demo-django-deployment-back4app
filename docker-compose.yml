@@ -9,7 +9,7 @@ services:
     - ./staticfiles_prod:/var/www/demo_django_deployment/static
     
     ports:
-      - 8080:80
+      - 80:80
 
     env_file:
       - ./.env-vars
