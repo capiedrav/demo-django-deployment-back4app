@@ -2,9 +2,9 @@ asgiref==3.5.2
 Django==3.2.15
 django-environ==0.10.0
 gunicorn==20.1.0
-pip==23.1.2
-# psycopg2==2.9.3
-psycopg2-binary # use this version to avoid installing build-essentials and other packages that increase image size
+pip==23.2.1
+psycopg2==2.9.3
+# psycopg2-binary # use this version to avoid installing build-essentials and other packages that increase image size
 pytz==2022.7
 setuptools==67.8.0
 sqlparse==0.4.3

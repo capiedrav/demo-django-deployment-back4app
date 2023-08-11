@@ -7,19 +7,30 @@ services:
     env_file:
       - ./.env-vars
 
+    networks:
+      # attach to this network to access cloudflare tunnel
+      - app-net
+          
     container_name: demo_django_deployment
 
   nginx:
     build: ./project_config/nginx/
-
-    ports:
-      - 80:80
 
     volumes:
       # move statics files to where nginx can find them
       - ./staticfiles_prod:/var/www/demo_django_deployment/static  
        
     container_name: demo_django_deployment_nginx
-  
+
+    networks:
+      # attach to this network to access cloudflare tunnel
+      - app-net           
+
     depends_on:
-      - web      
+      - web     
+
+networks:
+    # attach to this network to access cloudflare tunnel
+    app-net:
+      external: true
+
